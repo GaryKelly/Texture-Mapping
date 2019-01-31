@@ -14,7 +14,7 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
-
+#include <fstream>
 using namespace std;
 using namespace sf;
 using namespace gpp;

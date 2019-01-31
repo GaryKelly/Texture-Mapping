@@ -45,4 +45,17 @@
   <ItemGroup>
     <None Include="..\README.md" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="VertexShader.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="FragShader.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="texture.tga">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

@@ -137,17 +137,14 @@ void Game::initialize()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 	/* Vertex Shader which would normally be loaded from an external file */
-	const char* vs_src = "#version 400\n\r"
-		"in vec4 sv_position;"
-		"in vec4 sv_color;"
-		"in vec2 sv_texel;"
-		"out vec4 color;"
-		"out vec2 texel;"
-		"void main() {"
-		"	color = sv_color;"
-		"	texel = sv_texel;"
-		"	gl_Position = sv_position;"
-		"}"; //Vertex Shader Src
+	std::ifstream vertShadText("VertexShader.txt");
+	if (!vertShadText)
+	{
+		std::cout << "error loading text file" << std::endl;
+
+	}
+	std::string vertShadString((std::istreambuf_iterator<char>(vertShadText)), std::istreambuf_iterator<char>());
+	const char* vs_src = vertShadString.c_str(); ; //Vertex Shader Src
 
 	DEBUG_MSG("Setting Up Vertex Shader");
 
@@ -166,17 +163,14 @@ void Game::initialize()
 	{
 		DEBUG_MSG("ERROR: Vertex Shader Compilation Error");
 	}
-
+	std::ifstream fragShadText("FragShader.txt");
+	if (!fragShadText)
+	{
+		std::cout << "Error Loading text file" << std::endl;
+	}
+	std::string fragShaderString((std::istreambuf_iterator<char>(fragShadText)), std::istreambuf_iterator<char>());
 	/* Fragment Shader which would normally be loaded from an external file */
-	const char* fs_src = "#version 400\n\r"
-		"uniform sampler2D f_texture;"
-		"in vec4 color;"
-		"in vec2 texel;"
-		"out vec4 fColor;"
-		"void main() {"
-		//"	fColor = vec4(0.0f, 1.0f, 0.0f, 1.0f);"
-		"	fColor = texture(f_texture, texel.st);"
-		"}"; //Fragment Shader Src
+	const char* fs_src = fragShaderString.c_str();
 
 	DEBUG_MSG("Setting Up Fragment Shader");
 
