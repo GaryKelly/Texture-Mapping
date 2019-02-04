@@ -1,2 +1,5 @@
 ﻿  Game.cpp
-  SFMLOpenGL.vcxproj -> C:\Users\c00207281\Desktop\Texture-Mapping\Debug\SFMLOpenGL.exe
+c:\users\c00207281\desktop\texture-mapping\sfmlopengl\game.cpp(82): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\c00207281\desktop\texture-mapping\sfmlopengl\game.cpp(82): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\c00207281\desktop\texture-mapping\sfmlopengl\game.cpp(129): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  SFMLOpenGL.vcxproj -> C:\Users\C00207281\Desktop\Texture-Mapping\Debug\SFMLOpenGL.exe

@@ -41,8 +41,47 @@ typedef struct
 	float texel[2];
 } Vertex;
 
-Vertex vertex[3];
-GLubyte triangles[3];
+float vertices[]
+{
+	-0.2,-0.2,0.2, //t1
+	-0.2,-0.2,-0.2,
+	-0.2,0.2,-0.2, //t1 end
+	0.2,0.2,0.2,   //t2
+	-0.2,-0.2,0.2,
+	-0.2,0.2,0.2,  //t2 end
+	0.2,-0.2,-0.2, //t3
+	-0.2,-0.2,0.2,
+	0.2,-0.2,0.2,  //t3 end
+	0.2,-0.2,0.2,  //t4
+	0.2,0.2,0.2,
+	-0.2,-0.2,0.2, //t4 end
+	-0.2,-0.2,0.2, //t5
+	-0.2,0.2,-0.2,
+	-0.2,-0.2,0.2, //t5 end
+	0.2,-0.2,-0.2, //t6
+	-0.2,-0.2,-0.2,
+	-0.2,-0.2,0.2, //t6 end
+	-0.2,0.2,-0.2, //t7
+	-0.2,-0.2,-0.2,
+	0.2,-0.2,-0.2, //t7 end
+	0.2,0.2,-0.2,  //t8
+	0.2,-0.2,0.2,
+	0.2,0.2,0.2,   //t8 end
+	0.2,-0.2,0.2,  //t9
+	0.2,0.2,-0.2,
+	0.2,-0.2,-0.2, //t9 end
+	0.2,0.2,-0.2,  //t10
+	0.2,0.2,0.2,
+	-0.2,0.2,0.2,  //t10 end
+	0.2,0.2,-0.2,  //t11
+	-0.2,0.2,0.2,
+	-0.2,0.2,-0.2, //t11 end
+	0.2,0.2,-0.2   //t12
+	- 0.2,0.2,-0.2,
+	0.2,-0.2,-0.2  //t12 end
+};
+Vertex vertex[36];
+GLubyte triangles[36];
 
 /* Variable to hold the VBO identifier and shader data */
 GLuint	index,		//Index to draw
@@ -82,32 +121,15 @@ void Game::initialize()
 	DEBUG_MSG(glGetString(GL_VERSION));
 
 	/* Vertices counter-clockwise winding */
-	vertex[0].coordinate[0] = -0.5f;
-	vertex[0].coordinate[1] = -0.5f;
-	vertex[0].coordinate[2] = 0.0f;
-
-	vertex[1].coordinate[0] = -0.5f;
-	vertex[1].coordinate[1] = 0.5f;
-	vertex[1].coordinate[2] = 0.0f;
-
-	vertex[2].coordinate[0] = 0.5f;
-	vertex[2].coordinate[1] = 0.5f;
-	vertex[2].coordinate[2] = 0.0f;
-
-	vertex[0].color[0] = 1.0f;
-	vertex[0].color[1] = 0.0f;
-	vertex[0].color[2] = 0.0f;
-	vertex[0].color[3] = 1.0f;
-
-	vertex[1].color[0] = 1.0f;
-	vertex[1].color[1] = 0.0f;
-	vertex[1].color[2] = 0.0f;
-	vertex[1].color[3] = 1.0f;
-
-	vertex[2].color[0] = 1.0f;
-	vertex[2].color[1] = 0.0f;
-	vertex[2].color[2] = 0.0f;
-	vertex[2].color[3] = 0.0f;
+	for (int i = 0; i < 36; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			vertex[i].coordinate[j] = vertices[i * 3 + j];
+			vertex[i].color[j] = (((j + 1)*(0.5 + 1)) / 100.0);
+		}
+		
+	}
 
 	vertex[0].texel[0] = 0.5f;
 	vertex[0].texel[1] = 0.5f;
@@ -118,8 +140,109 @@ void Game::initialize()
 	vertex[2].texel[0] = 1.0f;
 	vertex[2].texel[1] = 0.0f;
 
+	vertex[3].texel[0] = 0.5f;
+	vertex[3].texel[1] = 0.5f;
+
+	vertex[4].texel[0] = 1.0f;
+	vertex[4].texel[1] = 1.0f;
+
+	vertex[5].texel[0] = 1.0f;
+	vertex[5].texel[1] = 0.0f;
+
+	vertex[6].texel[0] = 0.5f;
+	vertex[6].texel[1] = 0.5f;
+
+	vertex[7].texel[0] = 1.0f;
+	vertex[7].texel[1] = 1.0f;
+
+	vertex[8].texel[0] = 1.0f;
+	vertex[8].texel[1] = 0.0f;
+
+	vertex[9].texel[0] = 0.5f;
+	vertex[9].texel[1] = 0.5f;
+
+	vertex[10].texel[0] = 1.0f;
+	vertex[10].texel[1] = 1.0f;
+
+	vertex[11].texel[0] = 1.0f;
+	vertex[11].texel[1] = 0.0f;
+
+	vertex[12].texel[0] = 0.5f;
+	vertex[12].texel[1] = 0.5f;
+
+	vertex[13].texel[0] = 1.0f;
+	vertex[13].texel[1] = 1.0f;
+
+	vertex[14].texel[0] = 1.0f;
+	vertex[14].texel[1] = 0.0f;
+
+	vertex[15].texel[0] = 0.5f;
+	vertex[15].texel[1] = 0.5f;
+
+	vertex[16].texel[0] = 1.0f;
+	vertex[16].texel[1] = 1.0f;
+
+	vertex[17].texel[0] = 1.0f;
+	vertex[17].texel[1] = 0.0f;
+
+	vertex[18].texel[0] = 0.5f;
+	vertex[18].texel[1] = 0.5f;
+
+	vertex[19].texel[0] = 1.0f;
+	vertex[19].texel[1] = 1.0f;
+
+	vertex[20].texel[0] = 1.0f;
+	vertex[20].texel[1] = 0.0f;
+
+	vertex[21].texel[0] = 0.5f;
+	vertex[21].texel[1] = 0.5f;
+
+	vertex[22].texel[0] = 1.0f;
+	vertex[22].texel[1] = 1.0f;
+
+	vertex[23].texel[0] = 1.0f;
+	vertex[23].texel[1] = 0.0f;
+
+	vertex[24].texel[0] = 0.5f;
+	vertex[24].texel[1] = 0.5f;
+
+	vertex[25].texel[0] = 1.0f;
+	vertex[25].texel[1] = 1.0f;
+
+	vertex[26].texel[0] = 1.0f;
+	vertex[26].texel[1] = 0.0f;
+
+	vertex[27].texel[0] = 0.5f;
+	vertex[27].texel[1] = 0.5f;
+
+	vertex[28].texel[0] = 1.0f;
+	vertex[28].texel[1] = 1.0f;
+
+	vertex[29].texel[0] = 1.0f;
+	vertex[29].texel[1] = 0.0f;
+
+	vertex[30].texel[0] = 0.5f;
+	vertex[30].texel[1] = 0.5f;
+
+	vertex[31].texel[0] = 1.0f;
+	vertex[31].texel[1] = 1.0f;
+
+	vertex[32].texel[0] = 1.0f;
+	vertex[32].texel[1] = 0.0f;
+
+	vertex[33].texel[0] = 0.5f;
+	vertex[33].texel[1] = 0.5f;
+
+	vertex[34].texel[0] = 1.0f;
+	vertex[34].texel[1] = 1.0f;
+
+	vertex[35].texel[0] = 1.0f;
+	vertex[35].texel[1] = 0.0f;
 	/*Index of Poly / Triangle to Draw */
-	triangles[0] = 0;   triangles[1] = 1;   triangles[2] = 2;
+	for (int i = 0; i < 36; i++)
+	{
+		triangles[i] = i;
+	}
 
 	/* Create a new VBO using VBO id */
 	glGenBuffers(1, vbo);
@@ -128,12 +251,12 @@ void Game::initialize()
 	glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
 
 	/* Upload vertex data to GPU */
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 9, vertex, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 36, vertex, GL_STATIC_DRAW);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	glGenBuffers(1, &index);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLubyte) * 3, triangles, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLubyte) * 36, triangles, GL_STATIC_DRAW);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 	/* Vertex Shader which would normally be loaded from an external file */
@@ -277,17 +400,7 @@ void Game::update()
 	}
 
 	//Change vertex data
-	vertex[0].coordinate[0] += -0.0001f;
-	vertex[0].coordinate[1] += -0.0001f;
-	vertex[0].coordinate[2] += -0.0001f;
 
-	vertex[1].coordinate[0] += -0.0001f;
-	vertex[1].coordinate[1] += -0.0001f;
-	vertex[1].coordinate[2] += -0.0001f;
-
-	vertex[2].coordinate[0] += -0.0001f;
-	vertex[2].coordinate[1] += -0.0001f;
-	vertex[2].coordinate[2] += -0.0001f;
 
 #if (DEBUG >= 2)
 	DEBUG_MSG("Update up...");
@@ -311,7 +424,7 @@ void Game::render()
 
 	/*	As the data positions will be updated by the this program on the
 		CPU bind the updated data to the GPU for drawing	*/
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 3, vertex, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 36, vertex, GL_STATIC_DRAW);
 
 	/*	Draw Triangle from VBO	(set where to start from as VBO can contain
 		model components that 'are' and 'are not' to be drawn )	*/
@@ -331,7 +444,7 @@ void Game::render()
 	glEnableVertexAttribArray(colorID);
 	glEnableVertexAttribArray(texelID);
 
-	glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_BYTE, (char*)NULL + 0);
+	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_BYTE, (char*)NULL + 0);
 
 	window.display();
 
