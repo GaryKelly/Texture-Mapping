@@ -11,6 +11,9 @@
 
 #include <Vector3.h>
 #include <Matrix3.h>
+#include "MyMatrix3.h"
+#include "MyVector3.h"
+ 
 
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
@@ -32,9 +35,14 @@ private:
 	void update();
 	void render();
 	void unload();
-
+	void rotate(int t_axis);
+	void translate(int t_val, char t_axis);
+	void scale(int t_val);
 	Clock clock;
 	Time elapsed;
+	float m_rotationAngleY = 0.0f;			
+	float m_rotationAngleX = 0.0f;			
+	float m_rotationAngleZ = 0.0f;
 
 	float rotationAngle = 0.0f;
 };

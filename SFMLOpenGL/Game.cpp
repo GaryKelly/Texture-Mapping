@@ -39,7 +39,7 @@ typedef struct
 	float coordinate[3];
 	float color[4];
 	float texel[2];
-} Vertex;
+} Vertex1;
 
 float vertices[]
 {
@@ -80,7 +80,9 @@ float vertices[]
 	- 0.2,0.2,-0.2,
 	0.2,-0.2,-0.2  //t12 end
 };
-Vertex vertex[36];
+
+Vertex1 vertex[36];
+Vertex1 newVerts[36];
 GLubyte triangles[36];
 
 /* Variable to hold the VBO identifier and shader data */
@@ -131,113 +133,113 @@ void Game::initialize()
 		
 	}
 
-	vertex[0].texel[0] = 0.5f;
-	vertex[0].texel[1] = 0.5f;
+	vertex[0].texel[0] = 0.75f;
+	vertex[0].texel[1] = 0.33f;
 
 	vertex[1].texel[0] = 1.0f;
-	vertex[1].texel[1] = 1.0f;
+	vertex[1].texel[1] = 0.33f;
 
 	vertex[2].texel[0] = 1.0f;
-	vertex[2].texel[1] = 0.0f;
+	vertex[2].texel[1] = 0.66f;
 
-	vertex[3].texel[0] = 0.5f;
-	vertex[3].texel[1] = 0.5f;
+	vertex[3].texel[0] = 0.75f;
+	vertex[3].texel[1] = 0.66f;
 
-	vertex[4].texel[0] = 1.0f;
-	vertex[4].texel[1] = 1.0f;
+	vertex[4].texel[0] = 0.5f;
+	vertex[4].texel[1] = 0.33f;
 
-	vertex[5].texel[0] = 1.0f;
-	vertex[5].texel[1] = 0.0f;
+	vertex[5].texel[0] = 0.5f;
+	vertex[5].texel[1] = 0.66f;
 
-	vertex[6].texel[0] = 0.5f;
-	vertex[6].texel[1] = 0.5f;
+	vertex[6].texel[0] = 0.25f;
+	vertex[6].texel[1] = 0.0f;
 
-	vertex[7].texel[0] = 1.0f;
-	vertex[7].texel[1] = 1.0f;
+	vertex[7].texel[0] = 0.0f;
+	vertex[7].texel[1] = 0.33f;
 
-	vertex[8].texel[0] = 1.0f;
-	vertex[8].texel[1] = 0.0f;
+	vertex[8].texel[0] = 0.25f;
+	vertex[8].texel[1] = 0.33f;
 
 	vertex[9].texel[0] = 0.5f;
-	vertex[9].texel[1] = 0.5f;
+	vertex[9].texel[1] = 0.66f;
 
-	vertex[10].texel[0] = 1.0f;
-	vertex[10].texel[1] = 1.0f;
+	vertex[10].texel[0] = 0.5f;
+	vertex[10].texel[1] = 0.33f;
 
-	vertex[11].texel[0] = 1.0f;
-	vertex[11].texel[1] = 0.0f;
+	vertex[11].texel[0] = 0.75f;
+	vertex[11].texel[1] = 0.33f;
 
-	vertex[12].texel[0] = 0.5f;
-	vertex[12].texel[1] = 0.5f;
+	vertex[12].texel[0] = 0.75f;
+	vertex[12].texel[1] = 0.33f;
 
 	vertex[13].texel[0] = 1.0f;
-	vertex[13].texel[1] = 1.0f;
+	vertex[13].texel[1] = 0.66f;
 
-	vertex[14].texel[0] = 1.0f;
-	vertex[14].texel[1] = 0.0f;
+	vertex[14].texel[0] = 0.75f;
+	vertex[14].texel[1] = 0.66f;
 
-	vertex[15].texel[0] = 0.5f;
-	vertex[15].texel[1] = 0.5f;
+	vertex[15].texel[0] = 0.25f;
+	vertex[15].texel[1] = 0.33f;
 
-	vertex[16].texel[0] = 1.0f;
-	vertex[16].texel[1] = 1.0f;
+	vertex[16].texel[0] = 0.0f;
+	vertex[16].texel[1] = 0.33f;
 
-	vertex[17].texel[0] = 1.0f;
+	vertex[17].texel[0] = 0.0f;
 	vertex[17].texel[1] = 0.0f;
 
-	vertex[18].texel[0] = 0.5f;
-	vertex[18].texel[1] = 0.5f;
+	vertex[18].texel[0] = 0.0f;
+	vertex[18].texel[1] = 0.66f;
 
-	vertex[19].texel[0] = 1.0f;
-	vertex[19].texel[1] = 1.0f;
+	vertex[19].texel[0] = 0.0f;
+	vertex[19].texel[1] = 0.33f;
 
-	vertex[20].texel[0] = 1.0f;
-	vertex[20].texel[1] = 0.0f;
+	vertex[20].texel[0] = 0.25f;
+	vertex[20].texel[1] = 0.33f;
 
-	vertex[21].texel[0] = 0.5f;
-	vertex[21].texel[1] = 0.5f;
+	vertex[21].texel[0] = 0.25f;
+	vertex[21].texel[1] = 0.66f;
 
-	vertex[22].texel[0] = 1.0f;
-	vertex[22].texel[1] = 1.0f;
+	vertex[22].texel[0] = 0.5f;
+	vertex[22].texel[1] = 0.33f;
 
-	vertex[23].texel[0] = 1.0f;
-	vertex[23].texel[1] = 0.0f;
+	vertex[23].texel[0] = 0.5f;
+	vertex[23].texel[1] = 0.66f;
 
 	vertex[24].texel[0] = 0.5f;
-	vertex[24].texel[1] = 0.5f;
+	vertex[24].texel[1] = 0.33f;
 
-	vertex[25].texel[0] = 1.0f;
-	vertex[25].texel[1] = 1.0f;
+	vertex[25].texel[0] = 0.25f;
+	vertex[25].texel[1] = 0.33f;
 
-	vertex[26].texel[0] = 1.0f;
-	vertex[26].texel[1] = 0.0f;
+	vertex[26].texel[0] = 0.25f;
+	vertex[26].texel[1] = 0.33f;
 
-	vertex[27].texel[0] = 0.5f;
-	vertex[27].texel[1] = 0.5f;
+	vertex[27].texel[0] = 0.0f;
+	vertex[27].texel[1] = 0.66f;
 
-	vertex[28].texel[0] = 1.0f;
+	vertex[28].texel[0] = 0.0f;
 	vertex[28].texel[1] = 1.0f;
 
-	vertex[29].texel[0] = 1.0f;
-	vertex[29].texel[1] = 0.0f;
+	vertex[29].texel[0] = 0.25f;
+	vertex[29].texel[1] = 1.0f;
 
-	vertex[30].texel[0] = 0.5f;
-	vertex[30].texel[1] = 0.5f;
+	vertex[30].texel[0] = 0.25f;
+	vertex[30].texel[1] = 0.66f;
 
-	vertex[31].texel[0] = 1.0f;
+	vertex[31].texel[0] = 0.0f;
 	vertex[31].texel[1] = 1.0f;
 
-	vertex[32].texel[0] = 1.0f;
-	vertex[32].texel[1] = 0.0f;
+	vertex[32].texel[0] = 0.0f;
+	vertex[32].texel[1] = 0.66f;
 
-	vertex[33].texel[0] = 0.5f;
-	vertex[33].texel[1] = 0.5f;
+	vertex[33].texel[0] = 0.25f;
+	vertex[33].texel[1] = 0.66f;
 
-	vertex[34].texel[0] = 1.0f;
-	vertex[34].texel[1] = 1.0f;
+	vertex[34].texel[0] = 0.0f;
+	vertex[34].texel[1] = 0.66f;
 
-	vertex[35].texel[0] = 1.0f;
-	vertex[35].texel[1] = 0.0f;
+	vertex[35].texel[0] = 0.25f;
+	vertex[35].texel[1] = 0.33f;
 	/*Index of Poly / Triangle to Draw */
 	for (int i = 0; i < 36; i++)
 	{
@@ -251,7 +253,7 @@ void Game::initialize()
 	glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
 
 	/* Upload vertex data to GPU */
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 36, vertex, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex1) * 36, vertex, GL_STATIC_DRAW);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	glGenBuffers(1, &index);
@@ -400,8 +402,77 @@ void Game::update()
 	}
 
 	//Change vertex data
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
 
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
 
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	{
+
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+
+	}
+//Rotate on Z clockwise.
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+	{
+		m_rotationAngleZ += 0.0005f;
+
+		if (m_rotationAngleZ > 360.0f)
+		{
+			m_rotationAngleZ -= 360.0f;
+		}
+	}
+
+	//Rotate on X clockwise.
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
+	{
+
+		m_rotationAngleX += 0.0005f;
+
+		if (m_rotationAngleX > 360.0f)
+		{
+			m_rotationAngleX -= 360.0f;
+		}
+	}
+
+	//Rotate on Y clockwise
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
+	{
+		m_rotationAngleY += 0.0005f;
+
+		if (m_rotationAngleY > 360.0f)
+		{
+			m_rotationAngleY -= 360.0f;
+		}
+	}
+
+	for (int i = 0; i < 36; i++)
+	{
+		//Assigne the initial vertex to a tempory vector
+		MyVector3 tempVect{ vertex[i].coordinate[0], vertex[i].coordinate[1], vertex[i].coordinate[2] };
+
+		tempVect = MyMatrix3::rotationX(m_rotationAngleX) * tempVect;
+		tempVect = MyMatrix3::rotationY(m_rotationAngleY) * tempVect;
+		tempVect = MyMatrix3::rotationZ(m_rotationAngleZ) * tempVect;
+		
+
+		newVerts[i].coordinate[0] = tempVect.x;
+		newVerts[i].coordinate[1] = tempVect.y;
+		newVerts[i].coordinate[2] = tempVect.z;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Dash))
+	{
+
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Equal))
+	{
+	}
 #if (DEBUG >= 2)
 	DEBUG_MSG("Update up...");
 #endif
@@ -424,7 +495,7 @@ void Game::render()
 
 	/*	As the data positions will be updated by the this program on the
 		CPU bind the updated data to the GPU for drawing	*/
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * 36, vertex, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex1) * 36, newVerts , GL_STATIC_DRAW);
 
 	/*	Draw Triangle from VBO	(set where to start from as VBO can contain
 		model components that 'are' and 'are not' to be drawn )	*/
@@ -435,9 +506,9 @@ void Game::render()
 
 	// Set pointers for each parameter
 	// https://www.opengl.org/sdk/docs/man4/html/glVertexAttribPointer.xhtml
-	glVertexAttribPointer(positionID, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-	glVertexAttribPointer(colorID, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-	glVertexAttribPointer(texelID, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+	glVertexAttribPointer(positionID, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex1), 0);
+	glVertexAttribPointer(colorID, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex1), (void*)(3*sizeof(float)));
+	glVertexAttribPointer(texelID, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex1), (void*)(7 * sizeof(float)));
 
 	//Enable Arrays
 	glEnableVertexAttribArray(positionID);
@@ -458,5 +529,40 @@ void Game::unload()
 	glDeleteProgram(progID);
 	glDeleteBuffers(1, vbo);
 	stbi_image_free(img_data); //Free image
+}
+
+void Game::rotate(int t_axis)
+{
+	MyMatrix3 m_rotateX = MyMatrix3::rotationX(0.001);
+	MyMatrix3 m_rotateY = MyMatrix3::rotationY(0.001);
+	MyMatrix3 m_rotateZ = MyMatrix3::rotationZ(0.001);
+	MyMatrix3 m_mat1;
+	MyVector3 m_vect[3];
+	
+	
+	
+
+	switch (t_axis)
+	{
+	case 1:
+		
+		break;
+	case 2:
+		
+		break;
+	case 3:
+	
+		break;
+	default:
+		break;
+	}
+}
+
+void Game::translate(int t_val, char t_axis)
+{
+}
+
+void Game::scale(int t_val)
+{
 }
 
