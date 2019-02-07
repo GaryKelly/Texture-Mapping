@@ -62,7 +62,7 @@ float vertices[]
 	-0.2,-0.2,-0.2,
 	-0.2,-0.2,0.2, //t6 end
 	-0.2,0.2,-0.2, //t7
-	-0.2,-0.2,-0.2,
+	-0.2,-0.2,0.2,
 	0.2,-0.2,-0.2, //t7 end
 	0.2,0.2,-0.2,  //t8
 	0.2,-0.2,0.2,
@@ -100,8 +100,9 @@ GLuint	index,		//Index to draw
 
 //const string filename = "texture.tga";
 //const string filename = "cube.tga";
-
+//const string filename = "minecraft.tga";
 const string filename = "texture.tga";
+//const string filename = "Untitled.tga";
 
 int width; //width of texture
 int height; //height of texture
@@ -133,113 +134,109 @@ void Game::initialize()
 		
 	}
 
-	vertex[0].texel[0] = 0.75f;
-	vertex[0].texel[1] = 0.33f;
+	vertex[0].texel[0] = 0.0f;
+	vertex[0].texel[1] = 0.0f;
 
 	vertex[1].texel[0] = 1.0f;
-	vertex[1].texel[1] = 0.33f;
+	vertex[1].texel[1] = 1.0f;
 
 	vertex[2].texel[0] = 1.0f;
-	vertex[2].texel[1] = 0.66f;
+	vertex[2].texel[1] = 0.0f;
 
-	vertex[3].texel[0] = 0.75f;
-	vertex[3].texel[1] = 0.66f;
+	vertex[3].texel[0] = 0.0f;
+	vertex[3].texel[1] = 0.0f;
 
-	vertex[4].texel[0] = 0.5f;
-	vertex[4].texel[1] = 0.33f;
+	vertex[4].texel[0] = 0.0f;
+	vertex[4].texel[1] = 1.0f;
 
-	vertex[5].texel[0] = 0.5f;
-	vertex[5].texel[1] = 0.66f;
-
-	vertex[6].texel[0] = 0.25f;
+	vertex[5].texel[0] = 0.0f;
+	vertex[5].texel[1] = 1.0f;
+	vertex[6].texel[0] = 0.0f;
 	vertex[6].texel[1] = 0.0f;
 
-	vertex[7].texel[0] = 0.0f;
-	vertex[7].texel[1] = 0.33f;
+	vertex[7].texel[0] = 1.0f;
+	vertex[7].texel[1] = 1.0f;
 
-	vertex[8].texel[0] = 0.25f;
-	vertex[8].texel[1] = 0.33f;
+	vertex[8].texel[0] = 1.0f;
+	vertex[8].texel[1] = 0.0f;
 
-	vertex[9].texel[0] = 0.5f;
-	vertex[9].texel[1] = 0.66f;
+	vertex[9].texel[0] = 0.0f;
+	vertex[9].texel[1] = 0.0f;
 
-	vertex[10].texel[0] = 0.5f;
-	vertex[10].texel[1] = 0.33f;
+	vertex[10].texel[0] = 0.0f;
+	vertex[10].texel[1] = 1.0f;
 
-	vertex[11].texel[0] = 0.75f;
-	vertex[11].texel[1] = 0.33f;
-
-	vertex[12].texel[0] = 0.75f;
-	vertex[12].texel[1] = 0.33f;
+	vertex[11].texel[0] = 0.0f;
+	vertex[11].texel[1] = 1.0f;
+	vertex[12].texel[0] = 0.0f;
+	vertex[12].texel[1] = 0.0f;
 
 	vertex[13].texel[0] = 1.0f;
-	vertex[13].texel[1] = 0.66f;
+	vertex[13].texel[1] = 1.0f;
 
-	vertex[14].texel[0] = 0.75f;
-	vertex[14].texel[1] = 0.66f;
+	vertex[14].texel[0] = 1.0f;
+	vertex[14].texel[1] = 0.0f;
 
-	vertex[15].texel[0] = 0.25f;
-	vertex[15].texel[1] = 0.33f;
+	vertex[15].texel[0] = 0.0f;
+	vertex[15].texel[1] = 0.0f;
 
 	vertex[16].texel[0] = 0.0f;
-	vertex[16].texel[1] = 0.33f;
+	vertex[16].texel[1] = 1.0f;
 
 	vertex[17].texel[0] = 0.0f;
-	vertex[17].texel[1] = 0.0f;
-
+	vertex[17].texel[1] = 1.0f;
 	vertex[18].texel[0] = 0.0f;
-	vertex[18].texel[1] = 0.66f;
+	vertex[18].texel[1] = 0.0f;
 
-	vertex[19].texel[0] = 0.0f;
-	vertex[19].texel[1] = 0.33f;
+	vertex[19].texel[0] = 1.0f;
+	vertex[19].texel[1] = 1.0f;
 
-	vertex[20].texel[0] = 0.25f;
-	vertex[20].texel[1] = 0.33f;
+	vertex[20].texel[0] = 1.0f;
+	vertex[20].texel[1] = 0.0f;
 
-	vertex[21].texel[0] = 0.25f;
-	vertex[21].texel[1] = 0.66f;
+	vertex[21].texel[0] = 0.0f;
+	vertex[21].texel[1] = 0.0f;
 
-	vertex[22].texel[0] = 0.5f;
-	vertex[22].texel[1] = 0.33f;
+	vertex[22].texel[0] = 0.0f;
+	vertex[22].texel[1] = 1.0f;
 
-	vertex[23].texel[0] = 0.5f;
-	vertex[23].texel[1] = 0.66f;
+	vertex[23].texel[0] = 0.0f;
+	vertex[23].texel[1] = 1.0f;
+	vertex[24].texel[0] = 0.0f;
+	vertex[24].texel[1] = 0.0f;
 
-	vertex[24].texel[0] = 0.5f;
-	vertex[24].texel[1] = 0.33f;
+	vertex[25].texel[0] = 1.0f;
+	vertex[25].texel[1] = 1.0f;
 
-	vertex[25].texel[0] = 0.25f;
-	vertex[25].texel[1] = 0.33f;
-
-	vertex[26].texel[0] = 0.25f;
-	vertex[26].texel[1] = 0.33f;
+	vertex[26].texel[0] = 1.0f;
+	vertex[26].texel[1] = 0.0f;
 
 	vertex[27].texel[0] = 0.0f;
-	vertex[27].texel[1] = 0.66f;
+	vertex[27].texel[1] = 0.0f;
 
 	vertex[28].texel[0] = 0.0f;
 	vertex[28].texel[1] = 1.0f;
 
-	vertex[29].texel[0] = 0.25f;
+	vertex[29].texel[0] = 0.0f;
 	vertex[29].texel[1] = 1.0f;
+	vertex[30].texel[0] = 0.0f;
+	vertex[30].texel[1] = 0.0f;
 
-	vertex[30].texel[0] = 0.25f;
-	vertex[30].texel[1] = 0.66f;
-
-	vertex[31].texel[0] = 0.0f;
+	vertex[31].texel[0] = 1.0f;
 	vertex[31].texel[1] = 1.0f;
 
-	vertex[32].texel[0] = 0.0f;
-	vertex[32].texel[1] = 0.66f;
+	vertex[32].texel[0] = 1.0f;
+	vertex[32].texel[1] = 0.0f;
 
-	vertex[33].texel[0] = 0.25f;
-	vertex[33].texel[1] = 0.66f;
+	vertex[33].texel[0] = 0.0f;
+	vertex[33].texel[1] = 0.0f;
 
 	vertex[34].texel[0] = 0.0f;
-	vertex[34].texel[1] = 0.66f;
+	vertex[34].texel[1] = 1.0f;
 
-	vertex[35].texel[0] = 0.25f;
-	vertex[35].texel[1] = 0.33f;
+	vertex[35].texel[0] = 0.0f;
+	vertex[35].texel[1] = 1.0f;
+	
 	/*Index of Poly / Triangle to Draw */
 	for (int i = 0; i < 36; i++)
 	{
